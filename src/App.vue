@@ -1,13 +1,14 @@
 <template>
   <div>
-    <tick></tick>
+    <ComNameHaha></ComNameHaha>
   </div>
 </template>
 
 <script>
-import Tick from "./components/Tick.vue";
+import Com from "./components/Com.vue";
 export default {
-  components: { Tick },
+  // 对象里的key是变量的话 []属性名表达式
+  components: { Tick, [Com.name]: Com },
 };
 </script>
 

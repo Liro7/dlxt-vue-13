@@ -1,31 +1,26 @@
 <template>
   <div>
-    <h3>案例：折叠面板</h3>
-    <div>
-      <div class="title">
-        <h4>{{ title }}</h4>
-        <span class="btn" @click="isshow = !isshow">
-          {{ isshow ? "收起" : "展开" }}
-        </span>
-      </div>
-      <div class="container" v-show="isshow">
-        <p>寒雨连夜降入屋</p>
-        <p>寒雨连夜降入屋</p>
-        <p>寒雨连夜降入屋</p>
-        <p>寒雨连夜降入屋</p>
-      </div>
+    <button @click="comname = 'UserName'">账号密码填写</button>
+    <button @click="comname = 'UserInfo'">个人信息填写</button>
+    <!-- 显示组件 -->
+    <div style="border: 1px solid #333">
+      <component :is="comname"></component>
     </div>
   </div>
 </template>
+
 <script>
+import UserName from "@/components/UserName.vue";
+import UserInfo from "@/components/UserInfo.vue";
 export default {
-  props: ["title"],
+  components: { UserName, UserInfo },
   data() {
     return {
-      isshow: false,
+      comname: "UserName", //存储组件名
     };
   },
 };
 </script>
+
 <style scoped>
 </style>
